@@ -36,30 +36,26 @@ def start_game(lake, end_state, current_path=None):
 
 	possible_states = find_all_jumps(lake)
 
-	if end_state in possible_states:
-		correct_path.append(end_state)
-		return correct_path
-
 	for state in possible_states:
+		correct_path.append(state)
+		if state == end_state:
+			return correct_path
+		if start_game(state, end_state, correct_path):
+			return correct_path
+		correct_path.pop()
 
-		if find_all_jumps(state) != []:
-			correct_path.append(state)
-			start_game(state, end_state, correct_path)
-
-		else:
-			correct_path.pop()
-
+	return False
 
 
 def main():
 
 	lake = ['>', '>', '>', '_', '<', '<', '<']
-	print(find_all_jumps(lake))
 	end_state = lake[::-1]
+	correct_path = start_game(lake, end_state)
+
+	for state in correct_path:
+		print(state)
 
 
 if __name__=='__main__':
 	main()
-
-
-
