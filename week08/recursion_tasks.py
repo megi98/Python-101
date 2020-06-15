@@ -1,4 +1,5 @@
 #1.
+#Implement deep_find(data, key) which finds the given key in the data and returns it's value.
 
 def deep_find(data, key):
 
@@ -13,6 +14,7 @@ def deep_find(data, key):
 
 	
 #2.
+#Implement deep_find_all(data, key) which finds the given key in the data and returns array of the found values.
 
 def deep_find_all(data, key, some_list=None):
 
@@ -32,6 +34,7 @@ def deep_find_all(data, key, some_list=None):
 
 
 #3.
+#Implement deep_update(data, key, val) which updates every occurance of the given key in the data with val.
 
 def deep_update(data, key, val):
 
@@ -44,10 +47,3 @@ def deep_update(data, key, val):
 				deep_update(v, key, val)
 
 	return data
-
-
-
-
-		
-
-
